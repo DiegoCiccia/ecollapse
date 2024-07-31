@@ -1,0 +1,6 @@
+v 1.0.0
+d 'ecollapse': Extention of collapse to string variables
+d 
+d 
+F ecollapse.ado
+F ecollapse.sthlp

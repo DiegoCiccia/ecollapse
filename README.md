@@ -3,8 +3,16 @@ Extended Stata collapse with string functions
 
 ## Setup
 
+### SSC
+
 ```stata
 ssc install ecollapse, replace
+```
+
+### Github
+
+```stata
+net install ecollapse, from("https://raw.githubusercontent.com/DiegoCiccia/ecollapse/main") replace
 ```
 
 ## Syntax 
