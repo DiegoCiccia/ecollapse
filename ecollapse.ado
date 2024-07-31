@@ -16,6 +16,9 @@ qui {
     foreach v of varlist `VARS' {
         local l_`v': var label `v'
     }
+
+    ds
+    local df_vars = r(varlist)
 }
 
 qui {
@@ -82,6 +85,11 @@ qui {
     if strpos("`anything'", "(union)") {
         foreach v in `vunion' {
             levelsof `v', local(bn_`v')
+            if r(r) > 25 {
+                keep `df_vars'
+                noi di as err "`v' has more than 25 levels."
+                exit
+            }
             to_binary `v', ids(`bn_`v'') gen(`v'_bit)
             sum `v'_bit
             local bm_`v' = ceil(log(r(max))/log(2))
